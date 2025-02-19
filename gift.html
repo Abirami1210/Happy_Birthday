@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gift</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-family: cursive;
+            height: 100vh;
+            background: linear-gradient(135deg, #ff9ff3, #ff6b81, #ff4757);
+            overflow: hidden;
+        }
+        .gift-container {
+            position: relative;
+            cursor: pointer;
+            text-align: center;
+        }
+        .gift-box {
+            width: 250px;
+            height: 250px;
+            background: linear-gradient(135deg, #ff4d6d, #ff758c);
+            border-radius: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+            box-shadow: 0px 15px 25px rgba(0, 0, 0, 0.4);
+        }
+        .lid {
+            position: absolute;
+            top: -30px;
+            width: 270px;
+            height: 70px;
+            background: linear-gradient(135deg, #ff6b81, #ff4757);
+            border-radius: 20px 20px 0 0;
+            transition: transform 0.6s ease-in-out;
+        }
+        .ribbon {
+            position: absolute;
+            width: 100%;
+            height: 30px;
+            background: #fff;
+            top: 50%;
+            transform: translateY(-50%);
+        }
+        .message {
+            position: absolute;
+            top: -90px;
+            opacity: 0;
+            transition: opacity 0.5s ease-in-out, transform 0.5s ease-in-out;
+            font-size: 28px;
+            color: #fff;
+            font-weight: bold;
+            background: #ffdd57;
+            padding: 20px 30px;
+            border-radius: 15px;
+            box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.3);
+        }
+        .popup-image {
+            display: none;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background: rgba(255, 223, 229, 0.95);
+            padding: 30px;
+            border-radius: 20px;
+            box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.4);
+            text-align: center;
+        }
+        .popup-image img {
+            width: 300px;
+            height: auto;
+            border-radius: 15px;
+        }
+        .popup-text {
+            font-size: 24px;
+            color: #d63384;
+            font-weight: bold;
+            margin-top: 15px;
+        }
+    </style>
+</head>
+<body>
+    
+    <div class="gift-container" onclick="openGift()">
+        <div class="lid text-warning" id="lid">💖Click Me ! 💖 </div>
+        <div class="gift-box">
+            <div class="ribbon"></div>
+            <span class="message" id="message">💖 A Special Surprise! 💝</span>
+        </div>
+    </div>
+    <div class="popup-image" id="popup">
+        <img src="./images/sa.jpg" alt="Romantic Surprise">
+        <div class="popup-text">"You are my everything! 💕" <br> I LOVE YOU da💋</div>
+    </div>
+    <audio id="backgroundAudio" autoplay loop>
+        <source src="./assets/Unnodu Than En Jeevan Ringtone.mp3" type="audio/mpeg">
+        Your browser does not support the audio element.
+    </audio>
+    <script>
+        function openGift() {
+            document.getElementById('lid').style.transform = 'translateY(-100px) rotate(-15deg)';
+            document.getElementById('message').style.opacity = '1';
+            document.getElementById('message').style.transform = 'translateY(-30px)';
+            document.getElementById('popup').style.display = 'block';
+        }
+    </script>
+</body>
+</html>

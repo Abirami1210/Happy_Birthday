@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Birthday Greeting Card</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.5.1"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
+    <style>
+        body {
+            background: linear-gradient(120deg, #ff9a9e, #fad0c4);
+            text-align: center;
+            padding: 50px;
+            font-family: 'Pacifico', cursive;
+            overflow: hidden;
+            
+        }
+        .card {
+            background: #f09b9b;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0px 6px 15px rgba(0, 0, 0, 0.3);
+            opacity: 0;
+            animation: fadeIn 2s ease-in forwards;
+            background-repeat: no-repeat;
+            /* height: 100%; */
+            
+        }
+        .card:hover {
+            /* transform: scale(1.09); */
+            
+            transition: all 0.5s ease;
+        }
+        .hidden-message {
+            display: none;
+            font-size: 1.9rem;
+            color: #e67e22;
+            margin-top: 20px;
+            animation: fadeIn 2s ease-in;
+        }
+        .glowing-text {
+            font-size: 1.8rem;
+            color: #ff4757;
+            font-weight: 700;
+            text-shadow: 0 0 8px #ff6b81, 0 0 10px #ec5663;
+            animation: glow 1.5s infinite alternate;
+        }
+        @keyframes glow {
+            from { text-shadow: 0 0 5px #ff6b81, 0 0 10px #945ed3; }
+            to { text-shadow: 0 0 20px #ff6b81, 0 0 30px #ff4757; }
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        .balloon9 {
+            position: absolute;
+            bottom: -100px;
+            width: 50px;
+            height: 70px;
+            background: radial-gradient(circle, #ff4d4d, #ff0000);
+            border-radius: 50%;
+            animation: float 6s linear infinite;
+        }
+        .balloon9:nth-child(odd) { background: radial-gradient(circle, #ffcc00, #ff9900); }
+        .balloon9:nth-child(even) { animation-duration: 7s; }
+        /* @keyframes float {
+            0% { transform: translateY(100vh) rotate(0deg); opacity: 1; }
+            100% { transform: translateY(-10vh) rotate(360deg); opacity: 0; }
+        } */
+        .page {
+            display: none;
+            opacity: 0;
+            transform: scale(0.9);
+            animation: fadeZoom 0.5s forwards;
+        }
+        .active {
+            display: block;
+        }
+        @keyframes fadeZoom {
+            from { opacity: 0; transform: scale(0.9); }
+            to { opacity: 1; transform: scale(1); }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-md-6">
+                <div class="card">
+                    <div id="page1" class="page active">
+                        <h2 class="mb-3 glowing-text">Happy Birthday Mama!</h2>
+                        <p>Wishing you a wonderful day filled with love, laughter, and all your heart's desires.</p>
+                        <button class="btn btn-primary" onclick="nextPage(2)">Next</button>
+                    </div>
+                    <div id="page2" class="page">
+                        <p>May your year be filled with new adventures, great achievements, and endless happiness!</p>
+                        <button class="btn btn-primary" onclick="nextPage(3)">Next</button>
+                        <button class="btn btn-secondary" onclick="prevPage(1)">Back</button>
+                    </div>
+                    <div id="page3" class="page">
+                        <p class="glowing-text">"A birthday is a reminder of how special you are!" 🎉</p>
+                        <button class="btn btn-danger" onclick="showConfetti(); revealMessage()">Click for a Surprise</button>
+                        <p id="message" class="hidden-message">I'm lucky to have you in My Life, and today is all about celebrating YOU! Enjoy your special day!</p>
+                        <button class="btn btn-secondary" onclick="prevPage(2)">Back</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Floating Balloons -->
+    <script>
+        for (let i = 0; i < 10; i++) {
+            let balloon = document.createElement("div");
+            balloon.classList.add("balloon9");
+            balloon.style.left = Math.random() * 100 + "vw";
+            balloon.style.animationDelay = Math.random() * 5 + "s";
+            document.body.appendChild(balloon);
+        }
+
+        function nextPage(page) {
+            document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
+            document.getElementById('page' + page).classList.add('active');
+        }
+
+        function prevPage(page) {
+            document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
+            document.getElementById('page' + page).classList.add('active');
+        }
+
+        function revealMessage() {
+            let message = document.getElementById('message');
+            message.style.display = 'block';
+            message.style.animation = 'fadeIn 2s ease-in';
+        }
+
+        function showConfetti() {
+            confetti({
+                particleCount: 150,
+                spread: 80,
+                origin: { y: 0.6 }
+            });
+        }
+    </script>
+</body>
+</html>

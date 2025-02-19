@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Romantic Contact Page</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="style.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Great+Vibes&family=Parisienne&display=swap');
+        body {
+            background: linear-gradient(135deg, #ff758c, #ff7eb3);
+            font-family: cursive;
+            overflow-x: hidden;
+            position: relative;
+            height: 100vh;
+        }
+        .contact-container {
+            max-width: 750px;
+            background: rgba(255, 255, 255, 0.95);
+            padding: 50px;
+            border-radius: 20px;
+            box-shadow: 0 8px 30px rgba(255, 0, 150, 0.5);
+           
+            position: relative;
+            
+            text-align: center;
+            font-family:cursive;
+            
+        }
+        .heart-animation {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            font-size: 36px;
+            animation: heartbeat 1.5s infinite;
+            color: #ff4081;
+        }
+        @keyframes heartbeat {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.5); }
+            100% { transform: scale(1); }
+        }
+        .floating-balloons {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+        }
+        .floating-balloons span {
+            position: absolute;
+            background-color: red;
+            width: 50px;
+            height: 60px;
+            border-radius: 50%;
+            animation: floatBalloons 6s linear infinite;
+        }
+        @keyframes floatBalloons {
+            0% { transform: translateY(0); opacity: 1; }
+            100% { transform: translateY(-900px); opacity: 0; }
+        }
+        .glow-btn {
+            background: linear-gradient(45deg, #ff4081, #ff758c);
+            border: none;
+            font-size: 22px;
+            padding: 14px;
+            color: white;
+            border-radius: 15px;
+            box-shadow: 0 0 30px rgba(255, 0, 150, 0.7);
+            transition: transform 0.3s;
+            font-weight: bold;
+        }
+        .glow-btn:hover {
+            transform: scale(1.2);
+            box-shadow: 0 0 40px rgba(255, 0, 150, 0.9);
+        }
+        .quote {
+            font-size: 22px;
+            color: #ff4081;
+            font-style: italic;
+            margin-top: 20px;
+            font-weight: bold;
+        }
+        .contact-sec{
+            height: 100vh;
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg  ">
+        <div class="container-fluid navbar-list ">
+          <a class="navbar-brand " href="#"><img src="./images/l6.png" style="width: 150px;
+          height: 50px;"></a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse " id="navbarNavAltMarkup" >
+            <div class="navbar-nav ms-auto">
+              <a class="nav-link active  font-style-cursive me-5" aria-current="page" href="index.html">Home</a>
+              <a class="nav-link  me-5" href="gallery.html">Gallery</a>
+              <a class="nav-link  me-5" href="contact.html">Contact</a>
+
+             
+              
+            </div>
+          </div>
+        </div>
+      </nav>
+   <main>
+    <section class="contact-sec ">
+    <div class="floating-balloons"></div>
+    <div class="container d-flex justify-content-center">
+        <div class="contact-container">
+            <h2 class="text-danger">💖 Send a Love Note 💖</h2>
+            <p class="quote">"You are the only reason of My Happiness"</p>
+            <form id="contactForm">
+                <div class="mb-3">
+                    <label for="name" class="form-label">Your Name</label>
+                    <input type="text" class="form-control" id="name" required>
+                </div>
+                <div class="mb-3">
+                    <label for="email" class="form-label">Your Email</label>
+                    <input type="email" class="form-control" id="email" required>
+                </div>
+                <div class="mb-3">
+                    <label for="message" class="form-label">Your Romantic Message</label>
+                    <textarea class="form-control" id="message" rows="4" required></textarea>
+                </div>
+                <button type="submit" class="glow-btn w-100">Send with Love 💌</button>
+            </form>
+            <div class="heart-animation">❤️</div>
+        </div>
+    </div>
+    </section>
+   </main>
+   <audio id="background-music" autoplay loop>
+    <source src="./assets/_Unna_Vitta_Yaarum_Enakilla_Bgm_Ringtone_(by Fringster.com).mp3" type="audio/mpeg">
+    Your browser does not support the audio element.
+</audio>
+<footer class=" footer-sec">
+    <div class="container footer-txt">
+<h5 class="text-warning text-center pt-5">HAPPY BIRTHDAY</h5>
+           
+        <div class="row icons">
+            
+            
+            
+            <ul class="d-flex align-items-center justify-content-between ms-2 ">
+                <li ><a href="https://www.instagram.com/saran__offi__/" target="_blank""><i class="fa-brands fa-instagram"></i></a></li>
+                <li ><a href="https://wa.me/6385286995" class="btn-whatsapp-pulse"><i class="fa-brands fa-whatsapp"></i></a></li>
+                <li ><a href="mailto:saranrajofficial4545@gmail.com"><i class="fa-regular fa-envelope"></i></a></li>
+                <li ><a href=""><i class="fa-brands fa-snapchat"></i></a></li>
+                <li ><a href="tel:7548845459"><i class="fa-solid fa-phone"></i></a></li>
+            </ul>
+                                
+                            </div>  
+       
+    </div>
+</footer>
+    <script>
+        document.getElementById("contactForm").addEventListener("submit", function(event) {
+            event.preventDefault();
+            alert("Your message has been sent with love! ❤️");
+            createBalloons();
+        });
+        function createBalloons() {
+            for (let i = 0; i < 10; i++) {
+                let balloon = document.createElement("span");
+                balloon.style.left = Math.random() * 100 + "%";
+                balloon.style.top = Math.random() * 100 + "%";
+                balloon.style.backgroundColor = ["red", "pink", "purple", "gold"][Math.floor(Math.random() * 4)];
+                document.querySelector(".floating-balloons").appendChild(balloon);
+                setTimeout(() => balloon.remove(), 6000);
+            }
+        }
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
